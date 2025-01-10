@@ -46,6 +46,10 @@ jobs:
             # set latest tag for default branch
             type=raw,value=latest
 
+            # set the version to the tagged version
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+
       # Actually build the image and push to ghcr.io
       - name: Build and push Docker image
         id: push
