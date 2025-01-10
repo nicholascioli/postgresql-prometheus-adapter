@@ -1,10 +1,11 @@
 # Heavily influenced by: https://docs.github.com/en/actions/use-cases-and-examples/publishing-packages/publishing-docker-images#publishing-images-to-github-packages
 name: Create and publish a container image
 
-# Configures this workflow to run every time a change is pushed to the branch called `main`.
+# Trigger the build on every tagged release
 on:
   push:
-    branches: ["main"]
+    tags:
+      - "v[0-9]+.[0-9]+.[0-9]+"
 
 # Define registry information for later use
 env:
